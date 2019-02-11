@@ -8,8 +8,10 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div class="container">
+    <div className="container">
       <HeaderContainer />
+      <CardContainer />
+      <Footer />
     </div>
   );
 };

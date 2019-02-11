@@ -1,1 +1,35 @@
 /* All styles for your Card Components live here */
+
+.cardContainer {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  margin-left: 50px;
+  width: 520px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 15px;
+}
+
+.cardContent .cardTitle {
+  margin: 10px 0;
+}
+
+.cardContent p {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.cardSubText {
+  color: lightgrey;
+}
+
+.cardBanner img {
+  width: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  max-width: 520px;
+}
