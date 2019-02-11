@@ -1,1 +1,31 @@
 /* All styles for your header Components live here */
+.header {
+  display: flex;
+}
+
+.headerTitle {
+  display: flex;
+  align-items: baseline;
+}
+
+.headerTitle h3 {
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.headerTitle .subtitle {
+  color: grey;
+}
+
+.header-content {
+  margin-left: 10px;
+}
+
+.header-content p {
+  margin: 0;
+}
+
+.lambdaThumb {
+  height: 50px;
+  margin-top: 15px;
+}
