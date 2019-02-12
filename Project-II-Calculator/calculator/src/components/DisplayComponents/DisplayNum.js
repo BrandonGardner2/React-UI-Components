@@ -1,7 +1,7 @@
 import React from "react";
 
-const DisplayNum = () => {
-  return <div className="displayNum">0</div>;
+const DisplayNum = props => {
+  return <div className="displayNum">{props.displayNum}</div>;
 };
 
 export default DisplayNum;
