@@ -8,12 +8,12 @@ const CalcButtons = () => {
   return (
     <div className="calcButtons">
       <ActionButton data={"clear"} className="seventyFive clear" />
-      <ActionButton data={"/"} className="twentyFive" />
+      <ActionButton data={String.fromCharCode(247)} className="twentyFive" />
 
       <NumberButton data={7} className="twentyFive" />
       <NumberButton data={8} className="twentyFive" />
       <NumberButton data={9} className="twentyFive" />
-      <ActionButton data={"x"} className="twentyFive" />
+      <ActionButton data={String.fromCharCode(215)} className="twentyFive" />
 
       <NumberButton data={4} className="twentyFive" />
       <NumberButton data={5} className="twentyFive" />

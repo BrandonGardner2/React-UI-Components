@@ -13,6 +13,12 @@
   font-weight: bold;
 }
 
+.actionBtn {
+  color: white;
+  background-color: #8b001f;
+  font-weight: normal;
+}
+
 .clear {
   font-weight: normal;
   color: black;
