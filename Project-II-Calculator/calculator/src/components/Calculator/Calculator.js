@@ -30,28 +30,28 @@ export default class Calculator extends React.Component {
     switch (this.state.operator) {
       case "multiply":
         this.setState({
-          firstNum: this.state.firstNum * this.state.secondNum,
+          firstNum: Number(this.state.firstNum) * Number(this.state.secondNum),
           secondNum: ""
         });
         this.clearSecondAndOp();
         break;
       case "divide":
         this.setState({
-          firstNum: this.state.firstNum / this.state.secondNum,
+          firstNum: Number(this.state.firstNum) / Number(this.state.secondNum),
           secondNum: ""
         });
         this.clearSecondAndOp();
         break;
       case "add":
         this.setState({
-          firstNum: this.state.firstNum + this.state.secondNum,
+          firstNum: Number(this.state.firstNum) + Number(this.state.secondNum),
           secondNum: ""
         });
         this.clearSecondAndOp();
         break;
       case "subtract":
         this.setState({
-          firstNum: this.state.firstNum - this.state.secondNum,
+          firstNum: Number(this.state.firstNum) - Number(this.state.secondNum),
           secondNum: ""
         });
         this.clearSecondAndOp();
@@ -63,7 +63,7 @@ export default class Calculator extends React.Component {
 
   handleOperatorPress = e => {
     if (this.state.secondNum !== "") {
-      this.calculate(e.target.id);
+      this.calculate();
     } else {
       this.setState({
         operator: e.target.id
@@ -72,8 +72,15 @@ export default class Calculator extends React.Component {
   };
 
   handleNumberPress = e => {
-    if (this.state.secondNum !== "") {
-      console.log(e.target.id);
+    if (this.state.firstNum === 0) {
+      this.setState({
+        firstNum: e.target.id
+      });
+    } else if (this.state.operator === "") {
+      this.setState({
+        firstNum: this.state.firstNum.concat(e.target.id)
+      });
+    } else if (this.state.secondNum !== "") {
       this.setState({
         secondNum: this.state.secondNum.concat(e.target.id)
       });
