@@ -4,13 +4,19 @@ import "./Calculator.css";
 import CalculatorDisplay from "../DisplayComponents/CalculatorDisplay";
 import CalcButtons from "../ButtonComponents/CalcButtons";
 
-const Calculator = () => {
-  return (
-    <div className="calculator">
-      <CalculatorDisplay />
-      <CalcButtons />
-    </div>
-  );
-};
+export default class Calculator extends React.Component {
+  state = {
+    firstNum: 0,
+    secondNum: "",
+    operator: ""
+  };
 
-export default Calculator;
+  render() {
+    return (
+      <div className="calculator">
+        <CalculatorDisplay displayNum={this.state.displayNum} />
+        <CalcButtons />
+      </div>
+    );
+  }
+}
