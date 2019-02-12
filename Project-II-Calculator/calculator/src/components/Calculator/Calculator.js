@@ -8,14 +8,16 @@ export default class Calculator extends React.Component {
   state = {
     firstNum: 0,
     secondNum: "",
-    operator: ""
+    operator: "",
+    calcCount: 0
   };
 
   clearAll = () => {
     this.setState({
       firstNum: 0,
       secondNum: "",
-      operator: ""
+      operator: "",
+      calcCount: 0
     });
   };
 
@@ -31,28 +33,32 @@ export default class Calculator extends React.Component {
       case "multiply":
         this.setState({
           firstNum: Number(this.state.firstNum) * Number(this.state.secondNum),
-          secondNum: ""
+          secondNum: "",
+          calcCount: this.state.calcCount + 1
         });
         this.clearSecondAndOp();
         break;
       case "divide":
         this.setState({
           firstNum: Number(this.state.firstNum) / Number(this.state.secondNum),
-          secondNum: ""
+          secondNum: "",
+          calcCount: this.state.calcCount + 1
         });
         this.clearSecondAndOp();
         break;
       case "add":
         this.setState({
           firstNum: Number(this.state.firstNum) + Number(this.state.secondNum),
-          secondNum: ""
+          secondNum: "",
+          calcCount: this.state.calcCount + 1
         });
         this.clearSecondAndOp();
         break;
       case "subtract":
         this.setState({
           firstNum: Number(this.state.firstNum) - Number(this.state.secondNum),
-          secondNum: ""
+          secondNum: "",
+          calcCount: this.state.calcCount + 1
         });
         this.clearSecondAndOp();
         break;
@@ -64,6 +70,9 @@ export default class Calculator extends React.Component {
   handleOperatorPress = e => {
     if (this.state.secondNum !== "") {
       this.calculate();
+      this.setState({
+        operator: e.target.id
+      });
     } else {
       this.setState({
         operator: e.target.id
@@ -76,9 +85,9 @@ export default class Calculator extends React.Component {
       this.setState({
         firstNum: e.target.id
       });
-    } else if (this.state.operator === "") {
+    } else if (this.state.operator === "" && this.state.calcCount === 0) {
       this.setState({
-        firstNum: this.state.firstNum.concat(e.target.id)
+        firstNum: this.state.firstNum.toString().concat(e.target.id)
       });
     } else if (this.state.secondNum !== "") {
       this.setState({
@@ -94,7 +103,11 @@ export default class Calculator extends React.Component {
   render() {
     return (
       <div className="calculator">
-        <CalculatorDisplay displayNum={this.state.firstNum} />
+        <CalculatorDisplay
+          displayNum={
+            this.state.secondNum ? this.state.secondNum : this.state.firstNum
+          }
+        />
         <CalcButtons
           handleNumberPress={this.handleNumberPress}
           handleOperatorPress={this.handleOperatorPress}
