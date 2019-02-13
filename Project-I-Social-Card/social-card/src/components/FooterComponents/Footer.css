@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.footer div i {
+  cursor: pointer;
+  margin-right: 10px;
+}
