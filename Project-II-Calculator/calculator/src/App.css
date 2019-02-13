@@ -1,0 +1,7 @@
+.container {
+  font-size: 3.6rem;
+  max-width: 500px;
+  min-width: 400px;
+  border: 2px solid grey;
+  margin: 2% auto;
+}
